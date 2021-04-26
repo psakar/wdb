@@ -1,5 +1,6 @@
 package org.chare.wdb.entity;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -20,10 +21,13 @@ import lombok.NoArgsConstructor;
 public class ClientDatasources {
 	@Id
 	private String name;
-	private Map<String, Datasource> datasources;
+	private Map<String, Datasource> datasources = new HashMap<>();
 
 	public ClientDatasources(String name, List<Datasource> datasources) {
 		this(name, toMap(datasources));
+	}
+	public ClientDatasources(String name) {
+		this(name, new HashMap());
 	}
 
 	static Map<String, Datasource> toMap(List<Datasource> list) {

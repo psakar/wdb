@@ -33,4 +33,8 @@ public enum DatasourceType {
 		}
 		return map;
 	}
+
+	public List<DatasourcePropertyType<?>> getPropertyTypes() {
+		return propertyTypes;
+	}
 }
