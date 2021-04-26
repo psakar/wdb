@@ -16,7 +16,7 @@ public class RedisConfig {
 	private final RedisServer redisServer;
 	private final String redisHost;
 
-	public RedisConfig(@Value("${spring.redis.port:6379}") final int redisPort, @Value("${spring.redis.host:localhost}") final String redisHost, @Value("${spring.redis.embedded.max-memory-in-mega-bytes:128}") final int maxMemoryInMegaBytes) throws IOException {
+	public RedisConfig(@Value("${spring.redis.port:6380}") final int redisPort, @Value("${spring.redis.host:localhost}") final String redisHost, @Value("${spring.redis.embedded.max-memory-in-mega-bytes:128}") final int maxMemoryInMegaBytes) throws IOException {
 		this.redisHost = redisHost;
 		if ("127.0.0.1".equalsIgnoreCase(redisHost) || "localhost".equalsIgnoreCase(redisHost)) {
 			System.out.println("Redis server start on port " + redisPort + " max memory " + maxMemoryInMegaBytes + " MB");
