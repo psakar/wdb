@@ -33,7 +33,7 @@ import lombok.NoArgsConstructor;
 @RestController
 @RequestMapping(path = DATASOURCES_PATH, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 @AllArgsConstructor
-public class DatasourcesController {
+public class DatasourcesResource {
 
 	private final DatasourceRepository datasourceRepository;
 
