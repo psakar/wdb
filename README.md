@@ -32,6 +32,5 @@ localhost:8080/datasources/
 - security - authentication / authorization - eg. integrate with OAuth2.0/OIDC (eg. Keycloak / Okta)
 - other types of datasource than JDBC (NoSQL)
 - loading drivers not available in applicaton (possiblity to define own driver alias - upload jar file with jdbc driver, define url template and properties)
-- integrate failsafe plugin - run integration tests in different maven phase
 - use better suited NOSql database then Redis, implement "classical" SQL repository backend 
- 
+

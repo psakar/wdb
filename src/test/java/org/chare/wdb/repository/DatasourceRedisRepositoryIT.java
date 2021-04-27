@@ -22,9 +22,9 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 @DataRedisTest
-@ContextConfiguration(classes = {RedisConfig.class, DatasourceRedisRepositoryTest.ContextConfig.class})
+@ContextConfiguration(classes = {RedisConfig.class, DatasourceRedisRepositoryIT.ContextConfig.class})
 @DirtiesContext(classMode = AFTER_CLASS)
-class DatasourceRedisRepositoryTest {
+class DatasourceRedisRepositoryIT {
 
 
 	@Autowired
