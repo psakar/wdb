@@ -1,6 +1,8 @@
 package org.chare.wdb.rest;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.ALWAYS;
+import static org.chare.wdb.rest.Constants.CLIENT_HEADER;
+import static org.chare.wdb.rest.Constants.DATASOURCES_PATH;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.util.ObjectUtils.isEmpty;
 
@@ -29,14 +31,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @RestController
-@RequestMapping(path = "/datasources", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+@RequestMapping(path = DATASOURCES_PATH, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 @AllArgsConstructor
 public class DatasourcesController {
 
 	private final DatasourceRepository datasourceRepository;
 
 	@GetMapping(value = "/{name}")
-	public DatasourceDto get(@RequestHeader("client") String client, @PathVariable(value = "name") String name ) {
+	public DatasourceDto get(@RequestHeader(CLIENT_HEADER) String client, @PathVariable(value = "name") String name ) {
 		ClientDatasources clientDatasources = datasourceRepository.findById(client).orElse(null);
 		if (clientDatasources == null) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Client not found");
@@ -49,7 +51,7 @@ public class DatasourcesController {
 	}
 
 	@PostMapping(value = "/")
-	public void add(@RequestHeader("client") String client, @RequestBody DatasourceDto datasourceDto) {
+	public void add(@RequestHeader(CLIENT_HEADER) String client, @RequestBody DatasourceDto datasourceDto) {
 		ClientDatasources datasources = datasourceRepository.findById(client).orElse(new ClientDatasources(client));
 		if (datasourceDto == null || isEmpty(datasourceDto.name)) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Datasource name missing");
@@ -60,7 +62,7 @@ public class DatasourcesController {
 	}
 
 	@DeleteMapping(value = "/{name}")
-	public void delete(@RequestHeader("client") String client, @PathVariable(value = "name") String name ) {
+	public void delete(@RequestHeader(CLIENT_HEADER) String client, @PathVariable(value = "name") String name ) {
 		ClientDatasources clientDatasources = datasourceRepository.findById(client).orElse(null);
 		if (clientDatasources == null) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Client not found");
@@ -85,7 +87,7 @@ public class DatasourcesController {
 	}
 
 	@PutMapping(value = "/")
-	public void update(@RequestHeader("client") String client, @RequestBody DatasourceDto datasourceDto) {
+	public void update(@RequestHeader(CLIENT_HEADER) String client, @RequestBody DatasourceDto datasourceDto) {
 		ClientDatasources datasources = datasourceRepository.findById(client).orElse(new ClientDatasources(client));
 		if (datasourceDto == null || isEmpty(datasourceDto.name)) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Datasource name missing");
