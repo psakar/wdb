@@ -25,6 +25,9 @@ localhost:8080/datasources/
 ### delete datasource
 > curl -H "client: client1" -H "Content-Type: application/json" --request DELETE localhost:8080/datasources/datasource1
 
+## References
+### Infinitest
+see http://infinitest.github.io
 
 ## Currently not implemented
 - validation - required, type, ... 

@@ -1,0 +1,2 @@
+# Exclude tests with "Slow" tag
+exclude .*IT
