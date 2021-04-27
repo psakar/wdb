@@ -30,6 +30,7 @@ localhost:8080/datasources/
 see http://infinitest.github.io
 
 ## Currently not implemented
+- extract service for datasources management
 - validation - required, type, ... 
 - password handling - passwords are not masked ATM
 - security - authentication / authorization - eg. integrate with OAuth2.0/OIDC (eg. Keycloak / Okta)
