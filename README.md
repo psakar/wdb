@@ -42,3 +42,4 @@ see http://infinitest.github.io
 - loading drivers not available in applicaton (possiblity to define own driver alias - upload jar file with jdbc driver, define url template and properties)
 - use better suited NOSql database then Redis, implement "classical" SQL repository backend 
 - integrate swagger
+- error handling (db server not running, database does not exist, ...)
