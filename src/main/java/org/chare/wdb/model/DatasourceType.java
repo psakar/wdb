@@ -1,6 +1,6 @@
 package org.chare.wdb.model;
 
-import static java.util.Arrays.asList;
+import static org.chare.wdb.model.JdbcDatasourceType.createJdbcPropertyTypes;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,17 +13,6 @@ public enum DatasourceType {
 
 	DatasourceType(List<DatasourcePropertyType<?>> propertyTypes) {
 		this.propertyTypes = propertyTypes;
-	}
-
-	static List<DatasourcePropertyType<?>> createJdbcPropertyTypes() {
-		return asList(
-			new DatasourcePropertyType<>("type", JdbcDatasourceType.class, true, null),
-			new DatasourcePropertyType<>("hostname", String.class, true, "localhost"),
-			new DatasourcePropertyType<>("port", Integer.class, true, 0),
-			new DatasourcePropertyType<>("databaseName", String.class, true, ""),
-			new DatasourcePropertyType<>("username", String.class, true, ""),
-			new DatasourcePropertyType<>("password", String.class, false, "")
-		);
 	}
 
 	public Map<String, Object> createInitialProperties() {

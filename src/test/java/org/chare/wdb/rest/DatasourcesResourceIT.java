@@ -57,7 +57,7 @@ class DatasourcesResourceIT {
 	}
 
 	static String createDatasourceJson(String name) {
-		return "{\"name\":\"" + name + "\",\"type\":\"JDBC\",\"properties\":{\"hostname\":\"localhost\",\"password\":\"\",\"databaseName\":\"\",\"port\":0,\"type\":null,\"username\":\"\"}}";
+		return "{\"name\":\"" + name + "\",\"type\":\"JDBC\",\"properties\":{\"hostname\":\"localhost\",\"password\":\"\",\"database\":\"\",\"port\":0,\"type\":null,\"username\":\"\"}}";
 	}
 
 	@Configuration
