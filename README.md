@@ -10,7 +10,7 @@
 ### add datasource
 > curl -H "client: client1" -H "Content-Type: application/json" \
 --request POST \
---data '{"name":"datasource1","type":"JDBC","properties":{"hostname":"localhost", "port":5432,"username":"postgres","password":"postgres"}}' \
+--data '{"name":"datasource1","type":"JDBC","properties":{"type":"Postgres","hostname":"localhost","port":5432,"username":"postgres","password":"postgres"}}' \
 localhost:8080/datasources/
 
 ### get datasource
@@ -19,11 +19,15 @@ localhost:8080/datasources/
 ### update datasource
 > curl -H "client: client1" -H "Content-Type: application/json" \
 --request PUT \
---data '{"name":"datasource1","type":"JDBC","properties":{"hostname":"localhost", "port":5432,"username":"postgres","password":"postgres","databaseName":"demo"}}' \
+--data '{"name":"datasource1","type":"JDBC","properties":{"type":"Postgresql","hostname":"localhost", "port":5432,"username":"postgres","password":"postgres","database":"demo"}}' \
 localhost:8080/datasources/
 
 ### delete datasource
 > curl -H "client: client1" -H "Content-Type: application/json" --request DELETE localhost:8080/datasources/datasource1
+
+### browse datasource tables
+> curl -H "client: client1" -H "Content-Type: application/json" localhost:8080/datasources/datasource1/tables
+
 
 ## References
 ### Infinitest
@@ -37,4 +41,4 @@ see http://infinitest.github.io
 - other types of datasource than JDBC (NoSQL)
 - loading drivers not available in applicaton (possiblity to define own driver alias - upload jar file with jdbc driver, define url template and properties)
 - use better suited NOSql database then Redis, implement "classical" SQL repository backend 
-
+- integrate swagger
